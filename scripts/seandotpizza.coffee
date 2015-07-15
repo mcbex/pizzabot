@@ -1,6 +1,6 @@
 module.exports = (robot) ->
 
-  robot.respond /\@seandotpizza:?\s?(.*)/i, (res) ->
+  robot.hear /\@seandotpizza:?\s?(.*)/i, (res) ->
     fact = res.match[1] && res.match[1].toUpperCase()
     knownFacts = robot.brain.get "facts"
 
@@ -19,7 +19,7 @@ module.exports = (robot) ->
       robot.brain.set "facts", JSON.stringify knownFacts
       res.reply "I DID NOT KNOW THAT"
 
-  robot.respond /.*/i, (res) ->
+  robot.hear /.*/i, (res) ->
     chance = Math.random() * 100 < 10
 
     if chance
