@@ -26,6 +26,7 @@ module.exports = (robot) ->
       knownFacts = robot.brain.get "facts"
 
       if knownFacts
+        knownFacts = JSON.parse knownFacts
         res.reply res.random knownFacts
       else
         res.reply "TELL ME SOMETHING ABOUT PIZZA"
