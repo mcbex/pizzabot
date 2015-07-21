@@ -9,9 +9,10 @@ canTalk = ->
 
 module.exports = (robot) ->
 
-  robot.hear /shuttup|shut\up|stfu/i, (res) ->
-    timeToTalk = new Date().getTime() + (60 * 60 * 10000)
-    res.reply "OK I'M SORRY!"
+  robot.hear /shuttup|shut\sup|shaddup|stfu/i, (res) ->
+    if canTalk()
+      timeToTalk = new Date().getTime() + (60 * 60 * 10000)
+      res.reply "OK I'M SORRY!"
 
   robot.hear /\@seandotpizza:?\s?(.*)/i, (res) ->
     if canTalk()
